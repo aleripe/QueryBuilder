@@ -72,6 +72,7 @@
     <Compile Include="Enums\BooleanOperatorType.cs" />
     <Compile Include="Enums\DatePartType.cs" />
     <Compile Include="Enums\FunctionType.cs" />
+    <Compile Include="Enums\JoinType.cs" />
     <Compile Include="Enums\OrderType.cs" />
     <Compile Include="Enums\ComparisonPredicateType.cs" />
     <Compile Include="Modifiers\DistinctModifier.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Select\From\FromClause.cs" />
     <Compile Include="Select\From\FromClauses.cs" />
     <Compile Include="Select\From\QueryFromClause.cs" />
+    <Compile Include="Select\From\JoinFromClause.cs" />
     <Compile Include="Select\From\TableFromClause.cs" />
     <Compile Include="Select\GroupBy\GroupByClause.cs" />
     <Compile Include="Select\GroupBy\OrderByClauses.cs" />

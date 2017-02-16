@@ -121,6 +121,37 @@ namespace ReturnTrue.QueryBuilder.Renderers
             }
         }
 
+        public override string Render(JoinFromClause joinFromClause)
+        {
+            StringBuilder text = new StringBuilder();
+
+            text.AppendFormat("{0} ", joinFromClause.LeftTable.Render(this));
+
+            switch (joinFromClause.JoinType)
+            {
+                case JoinType.InnerJoin:
+                    text.Append("INNER JOIN ");
+                    break;
+                case JoinType.LeftJoin:
+                    text.Append("LEFT JOIN ");
+                    break;
+                case JoinType.RightJoin:
+                    text.Append("RIGHT JOIN ");
+                    break;
+                case JoinType.FullOuterJoin:
+                    text.Append("FULL OUTER JOIN ");
+                    break;
+            }
+
+            text.AppendFormat("{0} ", joinFromClause.RightTable.Render(this));
+
+            text.Append("ON ");
+
+            text.AppendFormat("{0} ", joinFromClause.Predicate.Render(this));
+
+            return text.ToString().Trim();
+        }
+
         public override string Render(TableFromClause tableFromClause)
         {
             StringBuilder text = new StringBuilder();
@@ -267,6 +298,11 @@ namespace ReturnTrue.QueryBuilder.Renderers
         public override string Render(Column column)
         {
             StringBuilder text = new StringBuilder();
+
+            if (column.Table != null)
+            {
+                text.AppendFormat(string.Concat(QuotedIdentifierFormat, "."), column.Table.Name);
+            }
 
             text.AppendFormat(string.Concat(QuotedIdentifierFormat, " "), column.Name);
 

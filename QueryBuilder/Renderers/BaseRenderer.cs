@@ -36,6 +36,7 @@ namespace ReturnTrue.QueryBuilder.Renderers
         public abstract string Render(SelectClauses selectClauses);
         public abstract string Render(SelectClause selectClause);
         public abstract string Render(FromClauses fromClauses);
+        public abstract string Render(JoinFromClause joinFromClause);
         public abstract string Render(TableFromClause tableFromClause);
         public abstract string Render(QueryFromClause queryFromClause);
         public abstract string Render(WhereClauses whereClauses);

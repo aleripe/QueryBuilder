@@ -19,6 +19,7 @@ namespace ReturnTrue.QueryBuilder.Renderers
         string Render(SelectClauses selectClauses);
         string Render(SelectClause selectClause);
         string Render(FromClauses fromClauses);
+        string Render(JoinFromClause joinFromClause);
         string Render(TableFromClause tableFromClause);
         string Render(QueryFromClause queryFromClause);
         string Render(WhereClauses whereClauses);

@@ -4,6 +4,7 @@ using ReturnTrue.QueryBuilder.Enums;
 using System;
 using System.Collections.Generic;
 using ReturnTrue.QueryBuilder.Modifiers;
+using ReturnTrue.QueryBuilder.Select.From;
 
 namespace ReturnTrue.QueryBuilder
 {
@@ -19,9 +20,19 @@ namespace ReturnTrue.QueryBuilder
             return new Column(name);
         }
 
+        public static Column Column(string name, Table table)
+        {
+            return new Column(name, table);
+        }
+
         public static Table Table(string name)
         {
             return new Table(name);
+        }
+
+        public static JoinFromClause Join(TableFromClause leftTable, TableFromClause rightTable, ComparisonPredicate predicate)
+        {
+            return new JoinFromClause(leftTable, rightTable, predicate);
         }
 
         public static Function Lower(IQueryValueExpression expression)

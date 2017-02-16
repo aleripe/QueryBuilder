@@ -3,7 +3,6 @@ using ReturnTrue.QueryBuilder.Modifiers;
 using ReturnTrue.QueryBuilder.Renderers;
 using ReturnTrue.QueryBuilder.Select;
 using ReturnTrue.QueryBuilder.Select.OrderBy;
-using ReturnTrue.QueryBuilder.Select.Select;
 using System;
 using System.Collections.Generic;
 
@@ -12,10 +11,17 @@ namespace ReturnTrue.QueryBuilder.Elements
     public class Column : IQueryValueExpression
     {
         public string Name { get; private set; }
+        public Table Table { get; private set; }
 
         public Column(string name)
+            : this(name, null)
+        {
+        }
+
+        public Column(string name, Table table)
         {
             Name = name;
+            Table = table;
         }
 
         public virtual string Render(IRenderer renderer)
