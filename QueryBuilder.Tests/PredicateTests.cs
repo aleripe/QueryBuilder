@@ -23,10 +23,10 @@ namespace ReturnTrue.QueryBuilder.Tests
         {
             Column column = new Column("Column1");
             StringLiteralValue stringLiteralValue = new StringLiteralValue("Value1");
-            ComparisonPredicate comparisonPredicate = new ComparisonPredicate(column, PredicateComparisonType.Equals, stringLiteralValue);
+            ComparisonPredicate comparisonPredicate = new ComparisonPredicate(column, ComparisonPredicateType.Equals, stringLiteralValue);
 
             Assert.AreEqual(column, comparisonPredicate.LeftExpression);
-            Assert.AreEqual(PredicateComparisonType.Equals, comparisonPredicate.ComparisonType);
+            Assert.AreEqual(ComparisonPredicateType.Equals, comparisonPredicate.ComparisonType);
             Assert.AreEqual(stringLiteralValue, comparisonPredicate.RightExpression);
         }
 
@@ -35,7 +35,7 @@ namespace ReturnTrue.QueryBuilder.Tests
         {
             Column column = new Column("Column1");
             StringLiteralValue stringLiteralValue = new StringLiteralValue("Value1");
-            ComparisonPredicate comparisonPredicate = new ComparisonPredicate(column, PredicateComparisonType.Equals, stringLiteralValue);
+            ComparisonPredicate comparisonPredicate = new ComparisonPredicate(column, ComparisonPredicateType.Equals, stringLiteralValue);
             
             Assert.AreEqual("[Column1] = 'Value1'", sqlClientRenderer.Render(comparisonPredicate));
         }

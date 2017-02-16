@@ -13,12 +13,12 @@ namespace ReturnTrue.QueryBuilder.Tests
 
         private static class UserData
         {
-            public static Table Table = Sql.Table("Table1");
+            public static Table Table = Sql.Table("Users");
             public static class Columns
             {
-                public static Column Name = Sql.Column("Column1");
-                public static Column Surname = Sql.Column("Column2");
-                public static Column Age = Sql.Column("Column3");
+                public static Column Name = Sql.Column("Name");
+                public static Column Surname = Sql.Column("Surname");
+                public static Column Age = Sql.Column("Age");
             }
         }
 
@@ -40,14 +40,14 @@ namespace ReturnTrue.QueryBuilder.Tests
         public void RenderSelectQuery()
         {
             SelectQuery selectQuery = Sql.Select()
-                .Select(UserData.Columns.Name & UserData.Columns.Surname)
-                .From(UserData.Table, "Users")
+                .Select(UserData.Columns.Name, UserData.Columns.Surname, UserData.Columns.Age.Avg())
+                .From(UserData.Table)
                 .Where((UserData.Columns.Name == "Mario" | UserData.Columns.Name == "Paolo") & UserData.Columns.Surname.IsLike("%Rossi%"))
                 .OrderBy(UserData.Columns.Name, UserData.Columns.Surname)
-                .GroupBy(UserData.Columns.Name)
+                .GroupBy(UserData.Columns.Name, UserData.Columns.Surname)
                 .Having(UserData.Columns.Age.Avg() < 22);
 
-            Assert.AreEqual("SELECT [Column1], [Column2] FROM [Table1] Users WHERE (([Column1] = 'Mario' OR [Column1] = 'Paolo') AND [Column2] LIKE '%Rossi%') ORDER BY [Column1] ASC, [Column2] ASC GROUP BY [Column1] HAVING AVG([Column3]) < 22", sqlClientRenderer.Render(selectQuery));
+            Assert.AreEqual("SELECT [Name], [Surname], AVG[[Age]) FROM [Users] WHERE (([Name] = 'Mario' OR [Name] = 'Paolo') AND [Surname] LIKE '%Rossi%') ORDER BY [Name] ASC, [Surname] ASC GROUP BY [Name], [Surname] HAVING AVG([Age]) < 22", sqlClientRenderer.Render(selectQuery));
         }
     }
 } 

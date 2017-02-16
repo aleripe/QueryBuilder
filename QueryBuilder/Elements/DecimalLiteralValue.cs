@@ -13,5 +13,10 @@ namespace ReturnTrue.QueryBuilder.Elements
         {
             return renderer.Render(this);
         }
+
+        public static implicit operator DecimalLiteralValue(double literalValue)
+        {
+            return new DecimalLiteralValue(literalValue);
+        }
     }
 }

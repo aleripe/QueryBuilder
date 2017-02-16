@@ -32,5 +32,15 @@ namespace ReturnTrue.QueryBuilder.Select.Select
         {
             return new SelectClauses(leftClause, rightClause);
         }
+
+        public static SelectClauses operator &(SelectClause leftClause, Function rightClause)
+        {
+            return new SelectClauses(leftClause, new SelectClause(rightClause));
+        }
+
+        public static SelectClauses operator &(Function leftClause, SelectClause rightClause)
+        {
+            return new SelectClauses(new SelectClause(leftClause), rightClause);
+        }
     }
 }

@@ -6,10 +6,10 @@ namespace ReturnTrue.QueryBuilder.Elements
     public class ComparisonPredicate : Predicate
     {
         public IQueryValueExpression LeftExpression { get; private set; }
-        public PredicateComparisonType ComparisonType { get; private set; }
+        public ComparisonPredicateType ComparisonType { get; private set; }
         public IQueryValueExpression RightExpression { get; private set; }
 
-        public ComparisonPredicate(IQueryValueExpression leftExpression, PredicateComparisonType comparisonType, IQueryValueExpression rightExpression)
+        public ComparisonPredicate(IQueryValueExpression leftExpression, ComparisonPredicateType comparisonType, IQueryValueExpression rightExpression)
         {
             LeftExpression = leftExpression;
             ComparisonType = comparisonType;

@@ -14,5 +14,10 @@ namespace ReturnTrue.QueryBuilder.Elements
         {
             return renderer.Render(this);
         }
+
+        public static implicit operator DateTimeLiteralValue(DateTime literalValue)
+        {
+            return new DateTimeLiteralValue(literalValue);
+        }
     }
 }

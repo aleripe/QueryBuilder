@@ -24,7 +24,7 @@ namespace ReturnTrue.QueryBuilder.Tests
         {
             Column column = new Column("Column1");
             StringLiteralValue stringLiteralValue = new StringLiteralValue("Value1");
-            ComparisonPredicate comparisonPredicate = new ComparisonPredicate(column, PredicateComparisonType.Equals, stringLiteralValue);
+            ComparisonPredicate comparisonPredicate = new ComparisonPredicate(column, ComparisonPredicateType.Equals, stringLiteralValue);
             WhereClause whereClause = new WhereClause(comparisonPredicate);
 
             Assert.AreEqual(comparisonPredicate, whereClause.Predicate);
@@ -37,7 +37,7 @@ namespace ReturnTrue.QueryBuilder.Tests
 
             Column column = new Column("Column1");
             StringLiteralValue stringLiteralValue = new StringLiteralValue("LiteralValue1");
-            ComparisonPredicate comparisonPredicate = new ComparisonPredicate(column, PredicateComparisonType.Equals, stringLiteralValue);
+            ComparisonPredicate comparisonPredicate = new ComparisonPredicate(column, ComparisonPredicateType.Equals, stringLiteralValue);
             WhereClause whereClause = new WhereClause(comparisonPredicate);
             selectQuery.Where(whereClause);
 
@@ -53,8 +53,8 @@ namespace ReturnTrue.QueryBuilder.Tests
             Column column2 = new Column("Column2");
             StringLiteralValue stringLiteralValue1 = new StringLiteralValue("Value1");
             StringLiteralValue stringLiteralValue2 = new StringLiteralValue("Value2");
-            ComparisonPredicate comparisonPredicate1 = new ComparisonPredicate(column1, PredicateComparisonType.Equals, stringLiteralValue1);
-            ComparisonPredicate comparisonPredicate2 = new ComparisonPredicate(column2, PredicateComparisonType.Equals, stringLiteralValue2);
+            ComparisonPredicate comparisonPredicate1 = new ComparisonPredicate(column1, ComparisonPredicateType.Equals, stringLiteralValue1);
+            ComparisonPredicate comparisonPredicate2 = new ComparisonPredicate(column2, ComparisonPredicateType.Equals, stringLiteralValue2);
             WhereClause whereClause1 = new WhereClause(comparisonPredicate1);
             WhereClause whereClause2 = new WhereClause(comparisonPredicate2);
             WhereClauses whereClauses = new WhereClauses(whereClause1, BooleanOperatorType.And, whereClause2);
@@ -71,8 +71,8 @@ namespace ReturnTrue.QueryBuilder.Tests
             Column column2 = new Column("Column2");
             StringLiteralValue stringLiteralValue1 = new StringLiteralValue("Value1");
             StringLiteralValue stringLiteralValue2 = new StringLiteralValue("Value2");
-            ComparisonPredicate comparisonPredicate1 = new ComparisonPredicate(column1, PredicateComparisonType.Equals, stringLiteralValue1);
-            ComparisonPredicate comparisonPredicate2 = new ComparisonPredicate(column2, PredicateComparisonType.Equals, stringLiteralValue2);
+            ComparisonPredicate comparisonPredicate1 = new ComparisonPredicate(column1, ComparisonPredicateType.Equals, stringLiteralValue1);
+            ComparisonPredicate comparisonPredicate2 = new ComparisonPredicate(column2, ComparisonPredicateType.Equals, stringLiteralValue2);
             WhereClause whereClause1 = new WhereClause(comparisonPredicate1);
             WhereClause whereClause2 = new WhereClause(comparisonPredicate2);
             WhereClauses whereClauses = new WhereClauses(whereClause1, BooleanOperatorType.And, whereClause2);
@@ -87,8 +87,8 @@ namespace ReturnTrue.QueryBuilder.Tests
             Column column2 = new Column("Column2");
             StringLiteralValue stringLiteralValue1 = new StringLiteralValue("Value1");
             StringLiteralValue stringLiteralValue2 = new StringLiteralValue("Value2");
-            ComparisonPredicate comparisonPredicate1 = new ComparisonPredicate(column1, PredicateComparisonType.Equals, stringLiteralValue1);
-            ComparisonPredicate comparisonPredicate2 = new ComparisonPredicate(column2, PredicateComparisonType.Equals, stringLiteralValue2);
+            ComparisonPredicate comparisonPredicate1 = new ComparisonPredicate(column1, ComparisonPredicateType.Equals, stringLiteralValue1);
+            ComparisonPredicate comparisonPredicate2 = new ComparisonPredicate(column2, ComparisonPredicateType.Equals, stringLiteralValue2);
             WhereClause whereClause1 = new WhereClause(comparisonPredicate1);
             WhereClause whereClause2 = new WhereClause(comparisonPredicate2);
             WhereClauses whereClauses = new WhereClauses(whereClause1, BooleanOperatorType.Or, whereClause2);

@@ -73,7 +73,7 @@
     <Compile Include="Enums\DatePartType.cs" />
     <Compile Include="Enums\FunctionType.cs" />
     <Compile Include="Enums\OrderType.cs" />
-    <Compile Include="Enums\PredicateComparisonType.cs" />
+    <Compile Include="Enums\ComparisonPredicateType.cs" />
     <Compile Include="Modifiers\DistinctModifier.cs" />
     <Compile Include="Modifiers\NotModifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

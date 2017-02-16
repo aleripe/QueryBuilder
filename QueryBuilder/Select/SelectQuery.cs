@@ -34,9 +34,14 @@ namespace ReturnTrue.QueryBuilder.Select
             return this;
         }
 
-        public SelectQuery Select(IQueryValueExpression expression)
+        public SelectQuery Select(params IQueryValueExpression[] expressions)
         {
-            return Select(new SelectClause(expression));
+            foreach (IQueryValueExpression expression in expressions)
+            {
+                Select(new SelectClause(expression));
+            }
+
+            return this;
         }
 
         public SelectQuery Select(IQueryValueExpression expression, string alias)
@@ -106,24 +111,19 @@ namespace ReturnTrue.QueryBuilder.Select
             return this;
         }
 
-        public SelectQuery OrderBy(Column column)
+        public SelectQuery OrderBy(params Column[] columns)
         {
-            return OrderBy(new OrderByClause(column));
+            foreach (Column column in columns)
+            {
+                OrderBy(new OrderByClause(column));
+            }
+
+            return this;
         }
 
         public SelectQuery OrderBy(Column column, OrderType orderType)
         {
             return OrderBy(new OrderByClause(column, orderType));
-        }
-
-        public SelectQuery OrderBy(params Column[] columns)
-        {
-            foreach (Column column in columns)
-            {
-                OrderBy(column);
-            }
-
-            return this;
         }
 
         public SelectQuery GroupBy(GroupByClause groupByClause)
@@ -140,9 +140,14 @@ namespace ReturnTrue.QueryBuilder.Select
             return this;
         }
 
-        public SelectQuery GroupBy(Column column)
+        public SelectQuery GroupBy(params Column[] columns)
         {
-            return GroupBy(new GroupByClause(column));
+            foreach (Column column in columns)
+            {
+                GroupBy(new GroupByClause(column));
+            }
+
+            return this;
         }
 
         public SelectQuery Having(HavingClause havingClause)
@@ -167,182 +172,182 @@ namespace ReturnTrue.QueryBuilder.Select
         #region Operator overloading
         public static ComparisonPredicate operator ==(SelectQuery query, bool literalValue)
         {
-            return new ComparisonPredicate(new BooleanLiteralValue(literalValue), PredicateComparisonType.Equals, query);
+            return new ComparisonPredicate(new BooleanLiteralValue(literalValue), ComparisonPredicateType.Equals, query);
         }
 
         public static ComparisonPredicate operator ==(SelectQuery query, DateTime literalValue)
         {
-            return new ComparisonPredicate(new DateTimeLiteralValue(literalValue), PredicateComparisonType.Equals, query);
+            return new ComparisonPredicate(new DateTimeLiteralValue(literalValue), ComparisonPredicateType.Equals, query);
         }
 
         public static ComparisonPredicate operator ==(SelectQuery query, int literalValue)
         {
-            return new ComparisonPredicate(new IntegerLiteralValue(literalValue), PredicateComparisonType.Equals, query);
+            return new ComparisonPredicate(new IntegerLiteralValue(literalValue), ComparisonPredicateType.Equals, query);
         }
 
         public static ComparisonPredicate operator ==(SelectQuery query, double literalValue)
         {
-            return new ComparisonPredicate(new DecimalLiteralValue(literalValue), PredicateComparisonType.Equals, query);
+            return new ComparisonPredicate(new DecimalLiteralValue(literalValue), ComparisonPredicateType.Equals, query);
         }
 
         public static ComparisonPredicate operator ==(SelectQuery query, string literalValue)
         {
-            return new ComparisonPredicate(new StringLiteralValue(literalValue), PredicateComparisonType.Equals, query);
+            return new ComparisonPredicate(new StringLiteralValue(literalValue), ComparisonPredicateType.Equals, query);
         }
 
         public static ComparisonPredicate operator ==(SelectQuery query, Column column)
         {
-            return new ComparisonPredicate(column, PredicateComparisonType.Equals, query);
+            return new ComparisonPredicate(column, ComparisonPredicateType.Equals, query);
         }
 
         public static ComparisonPredicate operator !=(SelectQuery query, bool literalValue)
         {
-            return new ComparisonPredicate(new BooleanLiteralValue(literalValue), PredicateComparisonType.NotEquals, query);
+            return new ComparisonPredicate(new BooleanLiteralValue(literalValue), ComparisonPredicateType.NotEquals, query);
         }
 
         public static ComparisonPredicate operator !=(SelectQuery query, DateTime literalValue)
         {
-            return new ComparisonPredicate(new DateTimeLiteralValue(literalValue), PredicateComparisonType.NotEquals, query);
+            return new ComparisonPredicate(new DateTimeLiteralValue(literalValue), ComparisonPredicateType.NotEquals, query);
         }
 
         public static ComparisonPredicate operator !=(SelectQuery query, int literalValue)
         {
-            return new ComparisonPredicate(new IntegerLiteralValue(literalValue), PredicateComparisonType.NotEquals, query);
+            return new ComparisonPredicate(new IntegerLiteralValue(literalValue), ComparisonPredicateType.NotEquals, query);
         }
 
         public static ComparisonPredicate operator !=(SelectQuery query, double literalValue)
         {
-            return new ComparisonPredicate(new DecimalLiteralValue(literalValue), PredicateComparisonType.NotEquals, query);
+            return new ComparisonPredicate(new DecimalLiteralValue(literalValue), ComparisonPredicateType.NotEquals, query);
         }
 
         public static ComparisonPredicate operator !=(SelectQuery query, string literalValue)
         {
-            return new ComparisonPredicate(new StringLiteralValue(literalValue), PredicateComparisonType.NotEquals, query);
+            return new ComparisonPredicate(new StringLiteralValue(literalValue), ComparisonPredicateType.NotEquals, query);
         }
 
         public static ComparisonPredicate operator !=(SelectQuery query, Column column)
         {
-            return new ComparisonPredicate(column, PredicateComparisonType.NotEquals, query);
+            return new ComparisonPredicate(column, ComparisonPredicateType.NotEquals, query);
         }
 
         public static ComparisonPredicate operator >(SelectQuery query, bool literalValue)
         {
-            return new ComparisonPredicate(new BooleanLiteralValue(literalValue), PredicateComparisonType.GreaterThan, query);
+            return new ComparisonPredicate(new BooleanLiteralValue(literalValue), ComparisonPredicateType.GreaterThan, query);
         }
 
         public static ComparisonPredicate operator >(SelectQuery query, DateTime literalValue)
         {
-            return new ComparisonPredicate(new DateTimeLiteralValue(literalValue), PredicateComparisonType.GreaterThan, query);
+            return new ComparisonPredicate(new DateTimeLiteralValue(literalValue), ComparisonPredicateType.GreaterThan, query);
         }
 
         public static ComparisonPredicate operator >(SelectQuery query, int literalValue)
         {
-            return new ComparisonPredicate(new IntegerLiteralValue(literalValue), PredicateComparisonType.GreaterThan, query);
+            return new ComparisonPredicate(new IntegerLiteralValue(literalValue), ComparisonPredicateType.GreaterThan, query);
         }
 
         public static ComparisonPredicate operator >(SelectQuery query, double literalValue)
         {
-            return new ComparisonPredicate(new DecimalLiteralValue(literalValue), PredicateComparisonType.GreaterThan, query);
+            return new ComparisonPredicate(new DecimalLiteralValue(literalValue), ComparisonPredicateType.GreaterThan, query);
         }
 
         public static ComparisonPredicate operator >(SelectQuery query, string literalValue)
         {
-            return new ComparisonPredicate(new StringLiteralValue(literalValue), PredicateComparisonType.GreaterThan, query);
+            return new ComparisonPredicate(new StringLiteralValue(literalValue), ComparisonPredicateType.GreaterThan, query);
         }
 
         public static ComparisonPredicate operator >(SelectQuery query, Column column)
         {
-            return new ComparisonPredicate(column, PredicateComparisonType.GreaterThan, query);
+            return new ComparisonPredicate(column, ComparisonPredicateType.GreaterThan, query);
         }
 
         public static ComparisonPredicate operator <(SelectQuery query, bool literalValue)
         {
-            return new ComparisonPredicate(new BooleanLiteralValue(literalValue), PredicateComparisonType.LessThan, query);
+            return new ComparisonPredicate(new BooleanLiteralValue(literalValue), ComparisonPredicateType.LessThan, query);
         }
 
         public static ComparisonPredicate operator <(SelectQuery query, DateTime literalValue)
         {
-            return new ComparisonPredicate(new DateTimeLiteralValue(literalValue), PredicateComparisonType.LessThan, query);
+            return new ComparisonPredicate(new DateTimeLiteralValue(literalValue), ComparisonPredicateType.LessThan, query);
         }
 
         public static ComparisonPredicate operator <(SelectQuery query, int literalValue)
         {
-            return new ComparisonPredicate(new IntegerLiteralValue(literalValue), PredicateComparisonType.LessThan, query);
+            return new ComparisonPredicate(new IntegerLiteralValue(literalValue), ComparisonPredicateType.LessThan, query);
         }
 
         public static ComparisonPredicate operator <(SelectQuery query, double literalValue)
         {
-            return new ComparisonPredicate(new DecimalLiteralValue(literalValue), PredicateComparisonType.LessThan, query);
+            return new ComparisonPredicate(new DecimalLiteralValue(literalValue), ComparisonPredicateType.LessThan, query);
         }
 
         public static ComparisonPredicate operator <(SelectQuery query, string literalValue)
         {
-            return new ComparisonPredicate(new StringLiteralValue(literalValue), PredicateComparisonType.LessThan, query);
+            return new ComparisonPredicate(new StringLiteralValue(literalValue), ComparisonPredicateType.LessThan, query);
         }
 
         public static ComparisonPredicate operator <(SelectQuery query, Column column)
         {
-            return new ComparisonPredicate(column, PredicateComparisonType.LessThan, query);
+            return new ComparisonPredicate(column, ComparisonPredicateType.LessThan, query);
         }
 
         public static ComparisonPredicate operator >=(SelectQuery query, bool literalValue)
         {
-            return new ComparisonPredicate(new BooleanLiteralValue(literalValue), PredicateComparisonType.GreaterOrEqualsThan, query);
+            return new ComparisonPredicate(new BooleanLiteralValue(literalValue), ComparisonPredicateType.GreaterOrEqualsThan, query);
         }
 
         public static ComparisonPredicate operator >=(SelectQuery query, DateTime literalValue)
         {
-            return new ComparisonPredicate(new DateTimeLiteralValue(literalValue), PredicateComparisonType.GreaterOrEqualsThan, query);
+            return new ComparisonPredicate(new DateTimeLiteralValue(literalValue), ComparisonPredicateType.GreaterOrEqualsThan, query);
         }
 
         public static ComparisonPredicate operator >=(SelectQuery query, int literalValue)
         {
-            return new ComparisonPredicate(new IntegerLiteralValue(literalValue), PredicateComparisonType.GreaterOrEqualsThan, query);
+            return new ComparisonPredicate(new IntegerLiteralValue(literalValue), ComparisonPredicateType.GreaterOrEqualsThan, query);
         }
 
         public static ComparisonPredicate operator >=(SelectQuery query, double literalValue)
         {
-            return new ComparisonPredicate(new DecimalLiteralValue(literalValue), PredicateComparisonType.GreaterOrEqualsThan, query);
+            return new ComparisonPredicate(new DecimalLiteralValue(literalValue), ComparisonPredicateType.GreaterOrEqualsThan, query);
         }
 
         public static ComparisonPredicate operator >=(SelectQuery query, string literalValue)
         {
-            return new ComparisonPredicate(new StringLiteralValue(literalValue), PredicateComparisonType.GreaterOrEqualsThan, query);
+            return new ComparisonPredicate(new StringLiteralValue(literalValue), ComparisonPredicateType.GreaterOrEqualsThan, query);
         }
 
         public static ComparisonPredicate operator >=(SelectQuery query, Column column)
         {
-            return new ComparisonPredicate(column, PredicateComparisonType.GreaterOrEqualsThan, query);
+            return new ComparisonPredicate(column, ComparisonPredicateType.GreaterOrEqualsThan, query);
         }
 
         public static ComparisonPredicate operator <=(SelectQuery query, bool literalValue)
         {
-            return new ComparisonPredicate(new BooleanLiteralValue(literalValue), PredicateComparisonType.LessOrEqualsThan, query);
+            return new ComparisonPredicate(new BooleanLiteralValue(literalValue), ComparisonPredicateType.LessOrEqualsThan, query);
         }
 
         public static ComparisonPredicate operator <=(SelectQuery query, DateTime literalValue)
         {
-            return new ComparisonPredicate(new DateTimeLiteralValue(literalValue), PredicateComparisonType.LessOrEqualsThan, query);
+            return new ComparisonPredicate(new DateTimeLiteralValue(literalValue), ComparisonPredicateType.LessOrEqualsThan, query);
         }
 
         public static ComparisonPredicate operator <=(SelectQuery query, int literalValue)
         {
-            return new ComparisonPredicate(new IntegerLiteralValue(literalValue), PredicateComparisonType.LessOrEqualsThan, query);
+            return new ComparisonPredicate(new IntegerLiteralValue(literalValue), ComparisonPredicateType.LessOrEqualsThan, query);
         }
 
         public static ComparisonPredicate operator <=(SelectQuery query, double literalValue)
         {
-            return new ComparisonPredicate(new DecimalLiteralValue(literalValue), PredicateComparisonType.LessOrEqualsThan, query);
+            return new ComparisonPredicate(new DecimalLiteralValue(literalValue), ComparisonPredicateType.LessOrEqualsThan, query);
         }
 
         public static ComparisonPredicate operator <=(SelectQuery query, string literalValue)
         {
-            return new ComparisonPredicate(new StringLiteralValue(literalValue), PredicateComparisonType.LessOrEqualsThan, query);
+            return new ComparisonPredicate(new StringLiteralValue(literalValue), ComparisonPredicateType.LessOrEqualsThan, query);
         }
 
         public static ComparisonPredicate operator <=(SelectQuery query, Column column)
         {
-            return new ComparisonPredicate(column, PredicateComparisonType.LessOrEqualsThan, query);
+            return new ComparisonPredicate(column, ComparisonPredicateType.LessOrEqualsThan, query);
         } 
         #endregion
     }

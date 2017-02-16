@@ -312,22 +312,22 @@ namespace ReturnTrue.QueryBuilder.Renderers
 
             switch (comparisonPredicate.ComparisonType)
             {
-                case PredicateComparisonType.Equals:
+                case ComparisonPredicateType.Equals:
                     text.Append("= ");
                     break;
-                case PredicateComparisonType.NotEquals:
+                case ComparisonPredicateType.NotEquals:
                     text.Append("<> ");
                     break;
-                case PredicateComparisonType.LessThan:
+                case ComparisonPredicateType.LessThan:
                     text.Append("< ");
                     break;
-                case PredicateComparisonType.GreaterThan:
+                case ComparisonPredicateType.GreaterThan:
                     text.Append("> ");
                     break;
-                case PredicateComparisonType.LessOrEqualsThan:
+                case ComparisonPredicateType.LessOrEqualsThan:
                     text.Append("<= ");
                     break;
-                case PredicateComparisonType.GreaterOrEqualsThan:
+                case ComparisonPredicateType.GreaterOrEqualsThan:
                     text.Append(">= ");
                     break;
             }

@@ -1,6 +1,6 @@
 ﻿namespace ReturnTrue.QueryBuilder.Enums
 {
-    public enum PredicateComparisonType
+    public enum ComparisonPredicateType
     {
         Equals,
         NotEquals,

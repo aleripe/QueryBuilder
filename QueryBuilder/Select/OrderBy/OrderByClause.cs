@@ -33,5 +33,10 @@ namespace ReturnTrue.QueryBuilder.Select.OrderBy
         {
             return new OrderByClauses(leftClause, rightClause);
         }
+
+        public static implicit operator OrderByClause(Column column)
+        {
+            return new OrderByClause(column);
+        }
     }
 }

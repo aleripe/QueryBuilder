@@ -24,7 +24,7 @@ namespace ReturnTrue.QueryBuilder.Tests
         {
             Column column = new Column("Column1");
             StringLiteralValue stringLiteralValue = new StringLiteralValue("Value1");
-            ComparisonPredicate comparisonPredicate = new ComparisonPredicate(column, PredicateComparisonType.Equals, stringLiteralValue);
+            ComparisonPredicate comparisonPredicate = new ComparisonPredicate(column, ComparisonPredicateType.Equals, stringLiteralValue);
             HavingClause havingClause = new HavingClause(comparisonPredicate);
 
             Assert.AreEqual(comparisonPredicate, havingClause.Predicate);
@@ -37,7 +37,7 @@ namespace ReturnTrue.QueryBuilder.Tests
 
             Column column = new Column("Column1");
             StringLiteralValue stringLiteralValue = new StringLiteralValue("Value1");
-            ComparisonPredicate comparisonPredicate = new ComparisonPredicate(column, PredicateComparisonType.Equals, stringLiteralValue);
+            ComparisonPredicate comparisonPredicate = new ComparisonPredicate(column, ComparisonPredicateType.Equals, stringLiteralValue);
             HavingClause havingClause = new HavingClause(comparisonPredicate);
             selectQuery.Having(havingClause);
 
@@ -53,8 +53,8 @@ namespace ReturnTrue.QueryBuilder.Tests
             Column column2 = new Column("Column2");
             StringLiteralValue stringLiteralValue1 = new StringLiteralValue("Value1");
             StringLiteralValue stringLiteralValue2 = new StringLiteralValue("Value2");
-            ComparisonPredicate comparisonPredicate1 = new ComparisonPredicate(column1, PredicateComparisonType.Equals, stringLiteralValue1);
-            ComparisonPredicate comparisonPredicate2 = new ComparisonPredicate(column2, PredicateComparisonType.Equals, stringLiteralValue2);
+            ComparisonPredicate comparisonPredicate1 = new ComparisonPredicate(column1, ComparisonPredicateType.Equals, stringLiteralValue1);
+            ComparisonPredicate comparisonPredicate2 = new ComparisonPredicate(column2, ComparisonPredicateType.Equals, stringLiteralValue2);
             HavingClause havingClause1 = new HavingClause(comparisonPredicate1);
             HavingClause havingClause2 = new HavingClause(comparisonPredicate2);
             HavingClauses havingClauses = new HavingClauses(havingClause1, BooleanOperatorType.And, havingClause2);
@@ -71,8 +71,8 @@ namespace ReturnTrue.QueryBuilder.Tests
             Column column2 = new Column("Column2");
             StringLiteralValue stringLiteralValue1 = new StringLiteralValue("Value1");
             StringLiteralValue stringLiteralValue2 = new StringLiteralValue("Value2");
-            ComparisonPredicate comparisonPredicate1 = new ComparisonPredicate(column1, PredicateComparisonType.Equals, stringLiteralValue1);
-            ComparisonPredicate comparisonPredicate2 = new ComparisonPredicate(column2, PredicateComparisonType.Equals, stringLiteralValue2);
+            ComparisonPredicate comparisonPredicate1 = new ComparisonPredicate(column1, ComparisonPredicateType.Equals, stringLiteralValue1);
+            ComparisonPredicate comparisonPredicate2 = new ComparisonPredicate(column2, ComparisonPredicateType.Equals, stringLiteralValue2);
             HavingClause havingClause1 = new HavingClause(comparisonPredicate1);
             HavingClause havingClause2 = new HavingClause(comparisonPredicate2);
             HavingClauses havingClauses = new HavingClauses(havingClause1, BooleanOperatorType.And, havingClause2);
@@ -87,8 +87,8 @@ namespace ReturnTrue.QueryBuilder.Tests
             Column column2 = new Column("Column2");
             StringLiteralValue stringLiteralValue1 = new StringLiteralValue("Value1");
             StringLiteralValue stringLiteralValue2 = new StringLiteralValue("Value2");
-            ComparisonPredicate comparisonPredicate1 = new ComparisonPredicate(column1, PredicateComparisonType.Equals, stringLiteralValue1);
-            ComparisonPredicate comparisonPredicate2 = new ComparisonPredicate(column2, PredicateComparisonType.Equals, stringLiteralValue2);
+            ComparisonPredicate comparisonPredicate1 = new ComparisonPredicate(column1, ComparisonPredicateType.Equals, stringLiteralValue1);
+            ComparisonPredicate comparisonPredicate2 = new ComparisonPredicate(column2, ComparisonPredicateType.Equals, stringLiteralValue2);
             HavingClause havingClause1 = new HavingClause(comparisonPredicate1);
             HavingClause havingClause2 = new HavingClause(comparisonPredicate2);
             HavingClauses havingClauses = new HavingClauses(havingClause1, BooleanOperatorType.Or, havingClause2);

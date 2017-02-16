@@ -13,5 +13,10 @@ namespace ReturnTrue.QueryBuilder.Elements
         {
             return renderer.Render(this);
         }
+
+        public static implicit operator StringLiteralValue(string literalValue)
+        {
+            return new StringLiteralValue(literalValue);
+        }
     }
 }
