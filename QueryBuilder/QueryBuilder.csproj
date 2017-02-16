@@ -7,7 +7,7 @@
     <ProjectGuid>{C55A2729-3D0C-433B-AEA0-D9156E956F4A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QueryBuilder</RootNamespace>
+    <RootNamespace>ReturnTrue.QueryBuilder</RootNamespace>
     <AssemblyName>QueryBuilder</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,8 +40,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\AggregateFunction.cs" />
+    <Compile Include="Elements\BooleanLiteralValue.cs" />
+    <Compile Include="Elements\ComparisonPredicate.cs" />
+    <Compile Include="Elements\DatePartFunction.cs" />
+    <Compile Include="Elements\DateTimeLiteralValue.cs" />
+    <Compile Include="Elements\DecimalLiteralValue.cs" />
+    <Compile Include="Elements\Function.cs" />
+    <Compile Include="Elements\ILiteralValue.cs" />
+    <Compile Include="Elements\StringLiteralArray.cs" />
+    <Compile Include="Elements\IntegerLiteralValue.cs" />
+    <Compile Include="Elements\IQueryElement.cs" />
+    <Compile Include="Elements\IQueryMembership.cs" />
+    <Compile Include="Elements\IQueryPredicate.cs" />
+    <Compile Include="Elements\IQueryValueExpression.cs" />
+    <Compile Include="Elements\Column.cs" />
+    <Compile Include="Elements\LiteralArray.cs" />
+    <Compile Include="Elements\IntegerLiteralArray.cs" />
+    <Compile Include="Elements\LiteralValue.cs" />
+    <Compile Include="Elements\LowerFunction.cs" />
+    <Compile Include="Elements\MembershipPredicate.cs" />
+    <Compile Include="Elements\NullPredicate.cs" />
+    <Compile Include="Elements\PatternPredicate.cs" />
+    <Compile Include="Elements\Predicate.cs" />
+    <Compile Include="Elements\QueryClause.cs" />
+    <Compile Include="Elements\Parameter.cs" />
+    <Compile Include="Elements\RangePredicate.cs" />
+    <Compile Include="Elements\StringLiteralValue.cs" />
+    <Compile Include="Elements\Table.cs" />
+    <Compile Include="Elements\UpperFunction.cs" />
+    <Compile Include="Enums\BooleanOperatorType.cs" />
+    <Compile Include="Enums\DatePartType.cs" />
+    <Compile Include="Enums\FunctionType.cs" />
+    <Compile Include="Enums\OrderType.cs" />
+    <Compile Include="Enums\PredicateComparisonType.cs" />
+    <Compile Include="Modifiers\DistinctModifier.cs" />
+    <Compile Include="Modifiers\NotModifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderers\BaseRenderer.cs" />
+    <Compile Include="Renderers\IRenderer.cs" />
+    <Compile Include="Renderers\SqlClientRenderer.cs" />
+    <Compile Include="Select\From\FromClause.cs" />
+    <Compile Include="Select\From\FromClauses.cs" />
+    <Compile Include="Select\From\QueryFromClause.cs" />
+    <Compile Include="Select\From\TableFromClause.cs" />
+    <Compile Include="Select\GroupBy\GroupByClause.cs" />
+    <Compile Include="Select\GroupBy\OrderByClauses.cs" />
+    <Compile Include="Select\Having\HavingClause.cs" />
+    <Compile Include="Select\Having\HavingClauses.cs" />
+    <Compile Include="Select\OrderBy\OrderByClause.cs" />
+    <Compile Include="Select\OrderBy\OrderByClauses.cs" />
+    <Compile Include="Select\SelectQuery.cs" />
+    <Compile Include="Select\Select\SelectClause.cs" />
+    <Compile Include="Select\Select\SelectClauses.cs" />
+    <Compile Include="Select\Where\WhereClause.cs" />
+    <Compile Include="Select\Where\WhereClauses.cs" />
+    <Compile Include="Sql.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
